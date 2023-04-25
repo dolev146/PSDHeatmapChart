@@ -21,6 +21,18 @@ Dolev
 
 ## Run Locally
 
+<img src="https://user-images.githubusercontent.com/62290677/234396792-11ce8b45-3836-4e02-8761-787bd61d83e8.png" width="30" height="30">
+
+
+for **React JavaScript**
+
+**nodejs version 18.15.0**
+
+using a tool called **nvm** to manage the diffrent node
+versions installed on my computer so its easy to switch between projects.
+
+
+
 Clone the project
 
 ```bash
@@ -45,13 +57,6 @@ Start the development server
   npm run dev
 ```
 
-i used **vite** to compile the code.
-for **React JavaScript**
-
-**nodejs version 18.15.0**
-
-using a tool called nvm to manage the diffrent node
-versions installed on my computer so its easy to switch between projects.
 
 
 
