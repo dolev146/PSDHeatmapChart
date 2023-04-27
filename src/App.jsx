@@ -2,25 +2,6 @@ import "./App.css";
 import React, { useState, useEffect, useRef } from "react";
 import { DynamicPsdHeatMap } from "./DynamicPsdHeatMap";
 
-// import { useSpring, animated } from "react-spring";
-// import { useDrag } from "react-use-gesture";
-// import { useMeasure } from "react-use";
-// import { usePrevious } from "./hooks/usePrevious";
-// import { useWindowSize } from "./hooks/useWindowSize";
-// import { useCanvas } from "./hooks/useCanvas";
-// import { useCanvasSize } from "./hooks/useCanvasSize";
-// import { useCanvasContext } from "./hooks/useCanvasContext";
-// import { useCanvasData } from "./hooks/useCanvasData";
-// import { useCanvasViewPort } from "./hooks/useCanvasViewPort";
-// import { useCanvasLegend } from "./hooks/useCanvasLegend";
-// import { useCanvasLegendBar } from "./hooks/useCanvasLegendBar";
-// import { useCanvasLegendText } from "./hooks/useCanvasLegendText";
-// import { useCanvasLegendTextValue } from "./hooks/useCanvasLegendTextValue";
-// import { useCanvasLegendTextUnit } from "./hooks/useCanvasLegendTextUnit";
-// import { useCanvasLegendTextMax } from "./hooks/useCanvasLegendTextMax";
-// import { useCanvasLegendTextMin } from "./hooks/useCanvasLegendTextMin";
-// import { useCanvasLegendTextMid } from "./hooks/useCanvasLegendTextMid";
-
 /**
  * Dynamic PSD heat map. Visualize PSD data by either: 1) incremental data(row by row), 2) whole data
  * @method
