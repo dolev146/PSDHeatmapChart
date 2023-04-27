@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import React, { useState, useEffect, useRef } from "react";
+import { DynamicPsdHeatMap } from "./DynamicPsdHeatMap";
+
+// import { useSpring, animated } from "react-spring";
+// import { useDrag } from "react-use-gesture";
+// import { useMeasure } from "react-use";
+// import { usePrevious } from "./hooks/usePrevious";
+// import { useWindowSize } from "./hooks/useWindowSize";
+// import { useCanvas } from "./hooks/useCanvas";
+// import { useCanvasSize } from "./hooks/useCanvasSize";
+// import { useCanvasContext } from "./hooks/useCanvasContext";
+// import { useCanvasData } from "./hooks/useCanvasData";
+// import { useCanvasViewPort } from "./hooks/useCanvasViewPort";
+// import { useCanvasLegend } from "./hooks/useCanvasLegend";
+// import { useCanvasLegendBar } from "./hooks/useCanvasLegendBar";
+// import { useCanvasLegendText } from "./hooks/useCanvasLegendText";
+// import { useCanvasLegendTextValue } from "./hooks/useCanvasLegendTextValue";
+// import { useCanvasLegendTextUnit } from "./hooks/useCanvasLegendTextUnit";
+// import { useCanvasLegendTextMax } from "./hooks/useCanvasLegendTextMax";
+// import { useCanvasLegendTextMin } from "./hooks/useCanvasLegendTextMin";
+// import { useCanvasLegendTextMid } from "./hooks/useCanvasLegendTextMid";
+
+/**
+ * Dynamic PSD heat map. Visualize PSD data by either: 1) incremental data(row by row), 2) whole data
+ * @method
+ * @param {string}  xDirection   - "ltr" means left to right, "rtl" means right to left. If not provided, default is "ltr"
+ * @param {boolean} showLegend   - Flag whether showing legend bar.
+ * @param {object}  widgetSize   - Hooked state data. Store canvas size in pixel: {width: 200, height: 551}
+ * @param {integer} saturation   - Pixel saturation. Percentage of maximum pixel value to saturate pixel.
+ * @param {object}  viewPort     - Hooked state data. Store view port data, example: {freqRange: [0,12], depthRange: [10,-1]}
+ * @param {object}  newSiteData  - Hooked state data. When new site data comes, outter logic encode data into this parameter.
+                                   Example: {depth: 9.8,stride: 0.3, startFreq: 3, psd: [1,2,3,5,...]}
+ * @param {object}  allSitesData - Hooked state data. When recovering the whole app, outter logic requests the whole trajectory 
+                                   data and set this hook. 
+                                   Example: {siteDepth: [9.8, 9.0, 8.7,...], stride: 0.3, startFreq: 3, psd: [1,2,3,5,...]}.
+ */
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const xDirection = "rtl";
+  const showLegend = true;
+  const widgetSize = { width: 200, height: 551 };
+  const saturation = 0.8;
+  const viewPort = { freqRange: [0, 12], depthRange: [10, -1] };
+  const newSiteData = {
+    depth: 9.8,
+    stride: 0.3,
+    startFreq: 3,
+    psd: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11],
+  };
+  const allSitesData = {
+    siteDepth: [
+      9.8, 9.0, 8.7, 8.4, 8.1, 7.8, 7.5, 7.2, 6.9, 6.6, 6.3, 6.0, 5.7,
+    ],
+    stride: 0.3,
+    startFreq: 3,
+    psd: [
+      1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 1, 2, 3,
+      5, 6, 7, 8, 9, 10, 11, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11,
+    ],
+  };
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <DynamicPsdHeatMap
+        xDirection={xDirection}
+        showLegend={showLegend}
+        widgetSize={widgetSize}
+        saturation={saturation}
+        viewPort={viewPort}
+        newSiteData={newSiteData}
+        allSitesData={allSitesData}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
