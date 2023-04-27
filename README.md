@@ -28,9 +28,10 @@ for **React JavaScript**
 
 **nodejs version 18.15.0**
 
-using a tool called **nvm** to manage the diffrent node
+I am using a tool called **nvm** to manage the diffrent node
 versions installed on my computer so its easy to switch between projects.
 
+if any error occured during the process feel free to contact me
 
 
 Clone the project
